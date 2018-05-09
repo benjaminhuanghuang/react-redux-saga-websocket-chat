@@ -1,10 +1,20 @@
-import { combineReducers } from "redux"
-import messages from "./messages"
-import users from "./users"
 
-const chat = combineReducers({
-    messages,
-    users
-})
+import * as types from '../constants/ActionTypes'
 
-export default chat
+const messages = (state = [], action) => {
+	switch (action.type) {
+		case types.ADD_MESSAGE:
+		case types.MESSAGE_RECEIVED:
+			return state.concat([
+				{
+					message: action.message,
+					author: action.author,
+					id: action.id
+				}
+			])
+		default:
+			return state
+	}
+}
+
+export default messages
