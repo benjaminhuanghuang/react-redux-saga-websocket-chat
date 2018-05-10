@@ -13,6 +13,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 import reducers from './reducers';
 import handleNewMessage from './sagas';
+import username from './utils/name';
 
 const sagaMiddleware = createSagaMiddleware();
 
